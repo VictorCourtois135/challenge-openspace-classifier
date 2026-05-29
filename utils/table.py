@@ -4,7 +4,6 @@ class Seat:
     the first one is occupant and it is set empty because the seat is available
     the second one is free and it is a boolaen that returns true if the seat is available, it is set to true because the seat is always empty when it is created
     '''
-    
     def __init__(self, occupant = "" , free = True ):
         self.occupant = occupant
         self.free = free
@@ -18,8 +17,6 @@ class Seat:
     First, it checks if the seat is free with the self.free attribute and if the seat is available it assigns the name to the seat and it change the self.free attribute to False
     If the seat is not free it prints the seat is taken
     '''
-    
-        
     def set_occupant(self,name):
         if self.free == True:
             self.occupant = name
@@ -33,8 +30,6 @@ class Seat:
     First it checks if the seat is occupied with the self.free attribute, then it changes the name to "" and after it changes the self.free to true 
     If the seat is free it prints Nobody is sitting
     '''
-    
-    
     def remove_occupant(self):
         if self.free == False:
             self.occupant = ""
@@ -51,7 +46,6 @@ class Table:
     the Table class has 2 attributes, the first one is the seat's capacity for 1 table and the second one is the IDs of each seat created with the Seat class
     with a loop so if we change the number of seats it will adapt
     '''
-    
     def __init__(self,capacity = 4):
         self.capacity = capacity
         self.seat = []
@@ -67,8 +61,6 @@ class Table:
     With a loop we check each seat in the table with the self.seat attribute and if 
     a seat is free it returns true, we check the availability of the seat with the free attribute of Seat class
     '''
-    
-        
     def has_free_spot(self):
         for i in self.seat:
             if i.free == True:
@@ -83,7 +75,6 @@ class Table:
     set_occupant method from the seat class 
     '''
     
-    
     def assign_seat(self, name):
         for i in self.seat:
             if i.free == True:
@@ -95,7 +86,6 @@ class Table:
     we create a variable left_seats and we set it up at 0, and with a loop we check if a seat is available with the free attribute from the seat class
     if the seat is free we do a +1 in the left_seats variable. We return the variable at the end
     '''
-    
     def left_capacity(self):
         left_seats = 0
         for i in self.seat:

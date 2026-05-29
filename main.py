@@ -1,11 +1,9 @@
-from utils.table import Table
-from utils.table import Seat 
 from utils.openspace import Openspace, new_collegues
 
 
 def main():
     
-    names = new_collegues
+    names = new_collegues  #List with the name of the collegues
     output_filename = input('The name of the file you want to save the reppartition in: ')
     
     

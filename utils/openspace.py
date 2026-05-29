@@ -24,6 +24,7 @@ class Openspace:
     def __str__(self):
         return 'MyClass = Openspace with ' + str(self.nbr_tables) +' tables ' 
     
+    
     '''
     the method organize is used to assign randomly people to a chair and to a table
     we use the random.shuffle method so each time we call the method the list is shuffled
@@ -32,7 +33,6 @@ class Openspace:
     the second loop is for each seat at the tables from the Table class attribute, and we use the
     method set_occupant that we created in the Seat class. The method assigns a name to a chair
     '''
-    
     def organize(self, names):
         random.shuffle(names)
         cpt = 0
@@ -48,7 +48,6 @@ class Openspace:
     the second loop is for each seat at the tables from the Table class attribute, and we print
     the occupant name with the occupant attribute from the Seat class
     '''
-    
     def display(self):
         cpt1 = 1
         for t in self.tables:
@@ -63,7 +62,6 @@ class Openspace:
     we use the with open function with the parameter w cause we want to create a file if it doesn't exist or we want to overwrite the content.
     we use the same logic as in the display method but instead of using the print function we use the .write to write the information in the file
     '''
-      
     def store(self, filename):
         with open(filename, "w") as file:
             cpt1 = 1
@@ -78,10 +76,7 @@ class Openspace:
                     file.write(f" {s.occupant} ")
                     
    
-        
-            
-                        
-                  
+  
                 
             
         

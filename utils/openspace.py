@@ -74,8 +74,32 @@ class Openspace:
                     cpt1 += 1
                 for s in t.seat:
                     file.write(f" {s.occupant} ")
-                    
-   
+    
+    '''
+    the add_someone method is used to add 1 person to the openspace, if no more seats are available it creates a new table with new seats
+    first i ask the question if the users want to add someone, then i check if there is a seat available, if there is a seat i assign it to the person
+    if there is no more seat i create a table and assign the seat with the assign_seat method from Table class
+    '''      
+    def add_someone(self):
+        question = input("Do you want to add someone? (y/n)")
+        if question == "y":
+            name = input("Name of the collegue: ")
+            
+            free_spot = self.tables[-1].has_free_spot()
+            
+            if free_spot :
+                for i, table in enumerate(self.tables):
+                    if table.has_free_spot :  
+                        self.tables[i].assign_seat(name)
+                        break
+            else:
+                self.tables.append(Table())
+                self.tables[-1].assign_seat(name)
+            
+            
+            
+                        
+                  
   
                 
             

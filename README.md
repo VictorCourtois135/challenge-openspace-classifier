@@ -33,7 +33,7 @@ This script runs everyday to re-assign everybody to a new seat.
    python main.py
 ```
 
-3. The script reads the new_collegues file which is a list of names, and organizes your colleagues to random seat assignments. The resulting seating plan is displayed in your console and also saved to an "output.csv" file in your root directory. 
+3. The script reads the new_collegues file which is a list of names, and organizes your colleagues to random seat assignments. The resulting seating plan is displayed in your console and also saved to a file in your directory.There is also a method to add someone to the openspace 
 
 ```python
 def main():
@@ -45,6 +45,9 @@ def main():
 
     # assign a colleague randomly to a table
     open_space.organize(names)
+
+    # add someone to the openspace
+    open_space.add_someone()
 
     # save the seat assigments to a new file
     open_space.store(output_filename)

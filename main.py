@@ -13,7 +13,8 @@ def main():
     # assign a colleague randomly to a table
     open_space.organize(names)
     
-    open_space.add_someone("CLAUDEEEEE")
+    # add someone to the openspace
+    open_space.add_someone()
 
     # save the seat assigments to a new file
     open_space.store(output_filename)

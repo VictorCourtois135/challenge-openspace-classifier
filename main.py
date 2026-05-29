@@ -1,61 +1,29 @@
-from utils.table import Table 
-import random
+from utils.table import Table
+from utils.table import Seat 
+from utils.openspace import Openspace, new_collegues
 
 
-new_collegues = ["Anna", "Dan", "Gaetan", "Guillermo", "Gunay", 
-                         "Hiba", "Hussein", "Ibrahim", "Ibtihel", "Imad", "Iness", 
-                         "Irene","Jeong", "Mahalakshmi", "Max", "Neha", "Siegried", 
-                         "Sitara", "Sooyoung", "Stephane", "Thi", "Uzair", "Victor", "Vanessa"]
-
-class Openspace:
-    def __init__(self, number_of_tables = 6):
-        self.nbr_tables = number_of_tables
-        self.tables = []
-        
-        for t in range(number_of_tables):
-            self.tables.append(Table())
-            
-    def __str__(self):
-        return 'MyClass = Openspace (nombre de table =' + str(self.nbr_tables) + ' ,tables id =' + str(self.tables) + ')'
+def main():
     
-    def organize(self, names):
-        random.shuffle(names)
-        cpt = 0
-        for t in self.tables:
-            for s in t.seat:
-                s.set_occupant(names[cpt])
-                cpt += 1
-                
-    def display(self):
-        cpt1 = 1
-        for t in self.tables:
-            print(f"table {cpt1} :")
-            cpt1 += 1
-            for s in t.seat:
-                print(s.occupant)
-      
-    def store(self, filename):
-        reaprtition_list = []
-        cpt1 = 1
-        for t in self.tables:
-            reaprtition_list.append(f"Table {cpt1}:")
-            cpt1 += 1
-            for s in t.seat:
-                reaprtition_list.append(f"{s.occupant}")
-        
-        with open(filename, "w") as file:
-            file.write(str(reaprtition_list))
-            
-        
-      
-        
-            
-            
-becode = Openspace()
-becode.organize(new_collegues)
-becode.display()
-print(becode.__str__())
-becode.store("test.txt")
+    names = new_collegues
+    output_filename = input('The name of the file you want to save the reppartition in: ')
+    
+    
+    # create an OpenSpace()
+    open_space = Openspace()
 
-                
+    # assign a colleague randomly to a table
+    open_space.organize(names)
+
+    # save the seat assigments to a new file
+    open_space.store(output_filename)
+
+    # display assignments in the terminal
+    open_space.display()
+
+    
+        
+if __name__ == "__main__":
+    main()
+
             

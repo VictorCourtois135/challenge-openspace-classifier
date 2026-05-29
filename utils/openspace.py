@@ -14,7 +14,6 @@ class Openspace:
     Second attribute is the ID's of the tables we created from the class Table in utils.table.py, 
     it is created with a loop so if we change the number of tables it will adapt
     '''
-    
     def __init__(self, number_of_tables = 6):
         self.nbr_tables = number_of_tables
         self.tables = []
@@ -27,11 +26,11 @@ class Openspace:
     
     '''
     the method organize is used to assign randomly people to a chair and to a table
-    we use the random.shuffle method so each time we call the meethod the list is shuffled
+    we use the random.shuffle method so each time we call the method the list is shuffled
     we use a loops to assign the people to a chair, we go down the new random list with a counter 
     the first loop is for each table in the tables' list from the Openspace class attribute,
-    the second loop is for each seats at the tables from the Table class attribute, and we use the
-    method set_occupant that we created in the Seat class. The method assign a name to a chair
+    the second loop is for each seat at the tables from the Table class attribute, and we use the
+    method set_occupant that we created in the Seat class. The method assigns a name to a chair
     '''
     
     def organize(self, names):
@@ -43,10 +42,10 @@ class Openspace:
                 cpt += 1
     
     '''
-    the display method show the names of the persons at a table
-    we use a loops to display the people
+    the display method shows the names of the persons at a table
+    we use a loop to display the people
     the first loop is for each table in the tables' list from the Openspace class attribute,
-    the second loop is for each seats at the tables from the Table class attribute, and we print
+    the second loop is for each seat at the tables from the Table class attribute, and we print
     the occupant name with the occupant attribute from the Seat class
     '''
     
@@ -59,10 +58,10 @@ class Openspace:
                 print(s.occupant)
                 
     '''
-    the store method store the reppartition in a file
+    the store method stores the reppartition in a file
     The parameter filename is used to name the file in which we want to store the reppartition.
     we use the with open function with the parameter w cause we want to create a file if it doesn't exist or we want to overwrite the content.
-    we use the same logic than in the siplay method but instead of using the print function we use the .write to write the information in the file
+    we use the same logic as in the display method but instead of using the print function we use the .write to write the information in the file
     '''
       
     def store(self, filename):
@@ -77,6 +76,10 @@ class Openspace:
                     cpt1 += 1
                 for s in t.seat:
                     file.write(f" {s.occupant} ")
+                    
+   
+        
+            
                         
                   
                 

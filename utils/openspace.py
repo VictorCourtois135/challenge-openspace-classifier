@@ -2,11 +2,6 @@ from utils.table import Table
 import random
 
 
-new_collegues = ["Anna", "Dan", "Gaetan", "Guillermo", "Gunay", 
-                         "Hiba", "Hussein", "Ibrahim", "Ibtihel", "Imad", "Iness", 
-                         "Irene","Jeong", "Mahalakshmi", "Max", "Neha", "Siegried", 
-                         "Sitara", "Sooyoung", "Stephane", "Thi", "Uzair", "Victor", "Vanessa"]
-
 class Openspace:
     '''
     This is the Opensace class with 2 attributes:
@@ -25,15 +20,17 @@ class Openspace:
         return 'MyClass = Openspace with ' + str(self.nbr_tables) +' tables ' 
     
     
-    '''
-    the method organize is used to assign randomly people to a chair and to a table
-    we use the random.shuffle method so each time we call the method the list is shuffled
-    we use a loops to assign the people to a chair, we go down the new random list with a counter 
-    the first loop is for each table in the tables' list from the Openspace class attribute,
-    the second loop is for each seat at the tables from the Table class attribute, and we use the
-    method set_occupant that we created in the Seat class. The method assigns a name to a chair
-    '''
+    
     def organize(self, names):
+        '''
+        the method organize is used to assign randomly people to a chair and to a table
+        we use the random.shuffle method so each time we call the method the list is shuffled
+        we use a loops to assign the people to a chair, we go down the new random list with a counter 
+        the first loop is for each table in the tables' list from the Openspace class attribute,
+        the second loop is for each seat at the tables from the Table class attribute, and we use the
+        method set_occupant that we created in the Seat class. The method assigns a name to a chair
+        '''
+        
         random.shuffle(names)
         cpt = 0
         for t in self.tables:
@@ -41,14 +38,15 @@ class Openspace:
                 s.set_occupant(names[cpt])
                 cpt += 1
     
-    '''
-    the display method shows the names of the persons at a table
-    we use a loop to display the people
-    the first loop is for each table in the tables' list from the Openspace class attribute,
-    the second loop is for each seat at the tables from the Table class attribute, and we print
-    the occupant name with the occupant attribute from the Seat class
-    '''
+
     def display(self):
+        '''
+        the display method shows the names of the persons at a table
+        we use a loop to display the people
+        the first loop is for each table in the tables' list from the Openspace class attribute,
+        the second loop is for each seat at the tables from the Table class attribute, and we print
+        the occupant name with the occupant attribute from the Seat class
+        '''
         cpt1 = 1
         for t in self.tables:
             print(f"\ntable {cpt1} :") 
@@ -56,13 +54,14 @@ class Openspace:
             for s in t.seat:
                 print(s.occupant)
                 
-    '''
-    the store method stores the reppartition in a file
-    The parameter filename is used to name the file in which we want to store the reppartition.
-    we use the with open function with the parameter w cause we want to create a file if it doesn't exist or we want to overwrite the content.
-    we use the same logic as in the display method but instead of using the print function we use the .write to write the information in the file
-    '''
+
     def store(self, filename):
+        '''
+        the store method stores the reppartition in a file
+        The parameter filename is used to name the file in which we want to store the reppartition.
+        we use the with open function with the parameter w cause we want to create a file if it doesn't exist or we want to overwrite the content.
+        we use the same logic as in the display method but instead of using the print function we use the .write to write the information in the file
+        '''
         with open(filename, "w") as file:
             cpt1 = 1
             for t in self.tables:
@@ -75,13 +74,14 @@ class Openspace:
                 for s in t.seat:
                     file.write(f" {s.occupant} ")
     
-    '''
-    the add_someone method is used to add 1 person to the openspace, if no more seats are available it creates a new table with new seats
-    first i ask the question if the users want to add someone, then i check if there is a seat available, if there is a seat i assign it to the person
-    if there is no more seat i create a table and assign the seat with the assign_seat method from Table class
-    '''      
+          
     def add_someone(self):
-        question = input("Do you want to add someone? (y/n)")
+        '''
+        the add_someone method is used to add 1 person to the openspace, if no more seats are available it creates a new table with new seats
+        first i ask the question if the users want to add someone, then i check if there is a seat available, if there is a seat i assign it to the person
+        if there is no more seat i create a table and assign the seat with the assign_seat method from Table class
+        '''
+        question = input("Do you want to add an extra colleague in the open space?(y/n)")
         if question == "y":
             name = input("Name of the collegue: ")
             

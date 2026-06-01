@@ -1,11 +1,12 @@
-from utils.openspace import Openspace, new_collegues
+from utils.openspace import Openspace
+from utils.file_utils import convert_file
 
 
 def main():
     
-    names = new_collegues  #List with the name of the collegues
+    file_path = "./new_colleagues.txt" #path of the file that contain the names
+    names = convert_file(file_path)   #converting the names name to a list
     output_filename = input('The name of the file you want to save the reppartition in: ')
-    
     
     # create an OpenSpace()
     open_space = Openspace()

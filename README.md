@@ -33,12 +33,14 @@ This script runs everyday to re-assign everybody to a new seat.
    python main.py
 ```
 
-3. The script reads the new_collegues file which is a list of names, and organizes your colleagues to random seat assignments. The resulting seating plan is displayed in your console and also saved to a file in your directory.There is also a method to add someone to the openspace 
+3. The script reads the new_collegues file and convert it into a list, then it organizes your colleagues to random seat assignments. The resulting seating plan is displayed in your console and also saved to a file in your directory.There is also a method to add someone to the openspace 
 
 ```python
 def main():
-    names = new_collegues
-    output_filename = input('The name of the file you want to     save the reppartition in:')
+     
+    file_path = "./new_colleagues.txt" #path of the file that contain the names
+    names = convert_file(file_path)   #converting the names name to a list
+    output_filename = input('The name of the file you want to save the reppartition in:')
 
     # create an OpenSpace()
     open_space = OpenSpace()

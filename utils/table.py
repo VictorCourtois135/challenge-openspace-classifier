@@ -12,12 +12,13 @@ class Seat:
     def __str__(self):
         return 'MyClass = Seat (seat is free=' + str(self.free) + ' ,name of the occupant=' + str(self.occupant) + ')'
     
-    '''
-    the set_occupant method is used to assign a name to a seat, it takes a name in parameter and it assigns this name to the seat
-    First, it checks if the seat is free with the self.free attribute and if the seat is available it assigns the name to the seat and it change the self.free attribute to False
-    If the seat is not free it prints the seat is taken
-    '''
+    
     def set_occupant(self,name):
+        '''
+        the set_occupant method is used to assign a name to a seat, it takes a name in parameter and it assigns this name to the seat
+        First, it checks if the seat is free with the self.free attribute and if the seat is available it assigns the name to the seat and it change the self.free attribute to False
+        If the seat is not free it prints the seat is taken
+        '''
         if self.free == True:
             self.occupant = name
             self.free = False
@@ -25,12 +26,13 @@ class Seat:
         else:
             print("the seat is taken")
             
-    '''
-    The remove_occupant method is used to remove the name of the seat's occupant and replace it with ""
-    First it checks if the seat is occupied with the self.free attribute, then it changes the name to "" and after it changes the self.free to true 
-    If the seat is free it prints Nobody is sitting
-    '''
+    
     def remove_occupant(self):
+        '''
+        The remove_occupant method is used to remove the name of the seat's occupant and replace it with ""
+        First it checks if the seat is occupied with the self.free attribute, then it changes the name to "" and after it changes the self.free to true 
+        If the seat is free it prints Nobody is sitting
+        '''
         if self.free == False:
             self.occupant = ""
             self.free = True
@@ -56,12 +58,13 @@ class Table:
     def __str__(self):
         return 'MyClass = Table with a capacity of '+ str(self.capacity) +' seats' 
     
-    '''
-    the has_free_spot method is used to check if a sea is free at the table and it returns a boolaen
-    With a loop we check each seat in the table with the self.seat attribute and if 
-    a seat is free it returns true, we check the availability of the seat with the free attribute of Seat class
-    '''
+    
     def has_free_spot(self):
+        '''
+        the has_free_spot method is used to check if a sea is free at the table and it returns a boolaen
+        With a loop we check each seat in the table with the self.seat attribute and if 
+        a seat is free it returns true, we check the availability of the seat with the free attribute of Seat class
+        '''
         for i in self.seat:
             if i.free == True:
                 return True
@@ -69,24 +72,26 @@ class Table:
                 return False
      
             
-    '''
-    the assign_seat method is used to assign the seat to someone, we put the name of the person we want to assign the seat to in the parameter
-    with a loop we check if the seat is free with the free attribute from the seat class, and if the seat is free we use the 
-    set_occupant method from the seat class 
-    '''
+   
     
     def assign_seat(self, name):
+        '''
+        the assign_seat method is used to assign the seat to someone, we put the name of the person we want to assign the seat to in the parameter
+        with a loop we check if the seat is free with the free attribute from the seat class, and if the seat is free we use the 
+        set_occupant method from the seat class 
+        '''
         for i in self.seat:
             if i.free == True:
                 i.set_occupant(name)
                 break
           
-    '''
-    this method returns the number of seats available at the table.
-    we create a variable left_seats and we set it up at 0, and with a loop we check if a seat is available with the free attribute from the seat class
-    if the seat is free we do a +1 in the left_seats variable. We return the variable at the end
-    '''
+    
     def left_capacity(self):
+        '''
+        this method returns the number of seats available at the table.
+        we create a variable left_seats and we set it up at 0, and with a loop we check if a seat is available with the free attribute from the seat class
+        if the seat is free we do a +1 in the left_seats variable. We return the variable at the end
+        '''
         left_seats = 0
         for i in self.seat:
             if i.free == True:
